@@ -1,4 +1,17 @@
+DROP IF EXISTS category;
 CREATE TABLE category (
-    id INT NOT NULL PRIMARY KEY, 
-    name VARCHAR(255)
+	id INT UNSIGNED NOT NULL PRIMARY KEY,
+	name VARCHAR(255)
+);
+
+DROP IF EXISTS article;
+CREATE TABLE article (
+	id INT UNSIGNED NOT NULL PRIMARY KEY,
+	name VARCHAR(255)
+);
+
+DROP IF EXISTS articlecategory;
+CREATE TABLE articlecategory (
+	article INT UNSIGNED NOT NULL,
+	category INT UNSIGNED NOT NULL
 );

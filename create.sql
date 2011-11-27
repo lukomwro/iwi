@@ -1,16 +1,16 @@
-DROP IF EXISTS category;
+DROP TABLE IF EXISTS `category`;
 CREATE TABLE category (
 	id INT UNSIGNED NOT NULL PRIMARY KEY,
 	name VARCHAR(255)
 );
 
-DROP IF EXISTS article;
+DROP TABLE IF EXISTS article;
 CREATE TABLE article (
 	id INT UNSIGNED NOT NULL PRIMARY KEY,
 	name VARCHAR(255)
 );
 
-DROP IF EXISTS articlecategory;
+DROP TABLE IF EXISTS articlecategory;
 CREATE TABLE articlecategory (
 	article INT UNSIGNED NOT NULL,
 	category INT UNSIGNED NOT NULL

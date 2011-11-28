@@ -1,0 +1,14 @@
+body {
+  padding-top: 60px;
+}
+
+footer {
+  clear: both;
+}
+
+
+
+/* Contain floats: h5bp.com/q */
+.cf:before, .cf:after { content: ""; display: table; }
+.cf:after { clear: both; }
+.cf { zoom: 1; }

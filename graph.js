@@ -17,7 +17,7 @@ var svg = vis[0][0];
             while (svg.lastChild) {
                 svg.removeChild(svg.lastChild);
             }
-            d3.json(event.target.getAttribute('src'), function(json) {
+            d3.json(event.target.getAttribute('href'), function(json) {
                 var force = d3.layout.force()
                     .charge(-120)
                     .linkDistance(30)

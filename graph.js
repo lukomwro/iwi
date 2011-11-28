@@ -5,14 +5,18 @@ var w = 960,
 var vis = d3.select("#chart").append("svg:svg")
     .attr("width", w)
     .attr("height", h);
+var svg = vis[0][0];
 (function(d){
     var nodes = d.getElementsByClassName('nodes'),
         nodesLn = nodes.length, i;
-    for (i=0; i<nodes; i++) {
-        nodes[i].onclick = function(event) {
+    for (i=0; i<nodesLn; i++) {
+        nodes[i].addEventListener('click', function(event) {
             event.preventDefault();
             event.stopPropagation();
-            console.log(event);
+            console.log(svg);
+            while (svg.lastChild) {
+                svg.removeChild(svg.lastChild);
+            }
             d3.json(event.target.getAttribute('src'), function(json) {
                 var force = d3.layout.force()
                     .charge(-120)
@@ -55,6 +59,6 @@ var vis = d3.select("#chart").append("svg:svg")
                     .attr("cy", function(d) { return d.y; });
                 });
             });
-        }
+        });
     }
 }(document));

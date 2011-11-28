@@ -6,7 +6,7 @@ var vis = d3.select("#chart").append("svg:svg")
     .attr("width", w)
     .attr("height", h);
 
-d3.json("ajax.php", function(json) {
+d3.json("ajax.php?limit=100", function(json) {
   var force = d3.layout.force()
       .charge(-120)
       .linkDistance(30)

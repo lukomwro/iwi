@@ -6,9 +6,21 @@ footer {
   clear: both;
 }
 
-
-
 /* Contain floats: h5bp.com/q */
 .cf:before, .cf:after { content: ""; display: table; }
 .cf:after { clear: both; }
 .cf { zoom: 1; }
+
+
+
+/* Graph */
+
+circle.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+line.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}

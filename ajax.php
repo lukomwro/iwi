@@ -6,7 +6,7 @@ try {
     $node_id = array();
     $json = array();
     foreach ($articles as $article) {
-        $node_id[] = $r
+        $node_id[] = $article['id'];
         $json['nodes'][] = array('id' => $article['id'], 'name' => $article['name']);
     }
     $articles->closeCursor();

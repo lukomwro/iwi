@@ -13,11 +13,10 @@ var svg = vis[0][0];
         nodes[i].addEventListener('click', function(event) {
             event.preventDefault();
             event.stopPropagation();
-            console.log(svg);
-            while (svg.lastChild) {
-                svg.removeChild(svg.lastChild);
-            }
             d3.json(event.target.getAttribute('href'), function(json) {
+                while (svg.lastChild) {
+                    svg.removeChild(svg.lastChild);
+                }
                 var force = d3.layout.force()
                     .charge(-120)
                     .linkDistance(30)

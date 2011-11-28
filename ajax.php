@@ -1,7 +1,8 @@
 <?php
+$limit = isset($_GET['limit'])? (int)$_GET['limit'] : 50;
 try {
     $pdo = new PDO('mysql:dbname=wiki;host=localhost', 'iwi', 'iwi');
-    $articles = $pdo->query('SELECT id, name FROM article LIMIT 50');
+    $articles = $pdo->query('SELECT id, name FROM article LIMIT '.$limit);
 
     $node_id = array();
     $json = array();

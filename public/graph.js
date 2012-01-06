@@ -2,7 +2,8 @@ var w = 960,
     h = 500,
     fill = d3.scale.category20();
 
-var vis = d3.select("#chart").append("svg:svg")
+var vis = d3.select("#chart")
+    .append("svg:svg")
     .attr("width", w)
     .attr("height", h);
 var svg = vis[0][0];

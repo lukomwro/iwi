@@ -21,4 +21,14 @@ class Controller_Main extends Controller
 		$this->template->content = View::forge('main/nodes');
 	}
 
+	/**
+	 * The 404 action for the application.
+	 * 
+	 * @access  public
+	 * @return  Response
+	 */
+	public function action_404()
+	{
+		return Response::forge(View::forge('main/404'), 404);
+	}
 }

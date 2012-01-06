@@ -120,6 +120,7 @@
             onItemSelect:selectItem,
             onFindValue:findValue,
             formatItem:formatItem,
+            mustMatch: true,
             autoFill:true,
             width: 230
         }

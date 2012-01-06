@@ -26,71 +26,119 @@ line.link {
 }
 
 /* Autocomplete */
+
 .ac_results {
-	padding: 0px;
-	border: 1px solid black;
-	background-color: white;
-	overflow: hidden;
-	z-index: 99999;
+  margin: -4px 0 0 0;
+  padding: 0px;
+  background-color: white;
+  overflow: hidden;
+  z-index: 99999;
+  border-top: 4px solid #fff;  
+  -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+     -moz-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+  -webkit-border-radius: 0 0 4px 4px;
+     -moz-border-radius: 0 0 4px 4px;
+          border-radius: 0 0 4px 4px;  
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
 }
 
 .ac_results ul {
-	width: 100%;
-	list-style-position: outside;
-	list-style: none;
-	padding: 0;
-	margin: 0;
+  width: 100%;
+  list-style-position: outside;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .ac_results li {
-	margin: 0px;
-	padding: 2px 5px;
-	cursor: default;
-	display: block;
-	/* 
-	if width will be 100% horizontal scrollbar will apear 
-	when scroll mode will be used
-	*/
-	/*width: 100%;*/
-	font: menu;
-	font-size: 12px;
-	/* 
-	it is very important, if line-height not setted or setted 
-	in relative units scroll will be broken in firefox
-	*/
-	line-height: 16px;
-	overflow: hidden;
+  margin: 0px;
+  padding: 2px 5px;
+  cursor: default;
+  display: block;
+  /* 
+  if width will be 100% horizontal scrollbar will apear 
+  when scroll mode will be used
+  */
+  /*width: 100%;*/
+  font: menu;
+  font-size: 12px;
+  /* 
+  it is very important, if line-height not setted or setted 
+  in relative units scroll will be broken in firefox
+  */
+  line-height: 16px;
+  overflow: hidden;
 }
 
 .ac_loading {
-	background: white url('/img/indicator.gif') right center no-repeat;
+  background: white url('/img/indicator.gif') right center no-repeat;
 }
 
 .ac_odd {
-	background-color: #F9F9F9;
+  background-color: #F9F9F9;
 }
 
 .ac_over {
-	background-color: #0A246A;
-	color: white;
+  background-color: #0064cd;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd));
+  background-image: -moz-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -ms-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0064cd));
+  background-image: -webkit-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -o-linear-gradient(top, #049cdb, #0064cd);
+  background-image: linear-gradient(top, #049cdb, #0064cd);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#049cdb', endColorstr='#0064cd', GradientType=0);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  color: white;
 }
-::-webkit-scrollbar {
-	width: 10px;
-	height: 10px;
+
+.ac_results ul::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  border-left: solid 1 #000;
 }
-::-webkit-scrollbar-button:start:decrement,
-::-webkit-scrollbar-button:end:increment  {
-	height: 30px;
-	display: block;
-	background-color: transparent;
+
+.ac_results ul::-webkit-scrollbar-button:start:decrement {
+  display: block;
+  height: 5px;
 }
-::-webkit-scrollbar-track-piece  {
-	background-color: #3b3b3b;
-	-webkit-border-radius: 6px;
+
+.ac_results ul::-webkit-scrollbar-button:end:increment {
+  display: block;
+  height: 5px;
 }
-::-webkit-scrollbar-thumb:vertical {
-	height: 50px;
-	background-color: #666;
-	border: 1px solid #eee;
-	-webkit-border-radius: 6px;
+
+.ac_results ul::-webkit-scrollbar-button:vertical:increment {
+  background-color: transparent;
+}
+
+.ac_results ul::-webkit-scrollbar-track:enabled {
+  background-color: transparent;
+}
+
+.ac_results ul::-webkit-scrollbar-thumb:vertical {
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 6px 0 0 6px;
+     -moz-border-radius: 6px 0 0 6px;
+          border-radius: 6px 0 0 6px;
+}
+
+.ac_results ul::-webkit-scrollbar-thumb:vertical:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.ac_results ul::-webkit-scrollbar-thumb:horizontal {
+  width: 50px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.ac_results ul::-webkit-scrollbar-thumb:horizontal:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.ac_results ul::-webkit-scrollbar-corner:horizontal {
+  width: 0;
 }

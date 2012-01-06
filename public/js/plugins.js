@@ -221,6 +221,7 @@ $.Autocompleter = function(input, options) {
 			return false;
 
 		var v = selected.result;
+		console.log(v);
 		previousValue = v;
 
 		if ( options.multiple ) {

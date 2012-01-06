@@ -110,7 +110,9 @@
             autoFill:true,
             width: 230
         }
-    );
+    ).result(function(event, data) {
+        $('#form-search-id').val(data[1]);
+    });
 
     /**
      * Wysyłanie formularza z wybranym nodem
@@ -118,5 +120,9 @@
     $('#form-search').submit(function(event) {
         event.preventDefault();
         event.stopPropagation();
+        if ($('#form-search-id').val().length == 0) {
+            return;
+        }
+        
     });
 }());

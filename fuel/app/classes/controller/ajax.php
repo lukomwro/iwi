@@ -9,6 +9,10 @@ class Controller_Ajax extends Controller {
 
 	public function action_nodes($node_id = "")
 	{
-		return View::forge('main/nodes');
+		return Model_Nodes::by_id_json($node_id);
+	}
+
+	public function action_nodesclick($node_id = "") {
+		return Model_Nodes::by_id_click($node_id);
 	}
 }

@@ -10,7 +10,7 @@ footer {
 .cf:before, .cf:after { content: ""; display: table; }
 .cf:after { clear: both; }
 lcf { zoom: 1; }
-.container-fluid {
+.topbar .container-fluid {
   background: url("/img/Wikipedia-logo.png") no-repeat right -40px
 }
 

@@ -39,7 +39,7 @@ class Model_Nodes {
 	        $json['links'][] = array('source' => $node_index_asoc[$edge['id_article_from']], 'target' => $node_index_asoc[$edge['id_article_to']], 'group' => 1);
 	    }
 
-	    /*$edges = DB::query("
+	    $edges = DB::query("
 	        SELECT 
 	            id_article_from, 
 	            id_article_to 
@@ -48,7 +48,7 @@ class Model_Nodes {
 	        	AND id_article_to IN (".join(',', $node_id).")")->execute();
 	    foreach ($edges as $edge) {
 	        $json['links'][] = array('source' => $node_index_asoc[$edge['id_article_from']], 'target' => $node_index_asoc[$edge['id_article_to']], 'group' => 1);
-	    }*/
+	    }
 	    return json_encode($json);
 	}
 

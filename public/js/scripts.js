@@ -75,7 +75,7 @@
             vis.selectAll('*').remove();
             var force = d3.layout.force()
                 .charge(-120)
-                .linkDistance(100)
+                .linkDistance(250)
                 .nodes(json.nodes)
                 .links(json.links)
                 .size([w, h])
@@ -144,7 +144,8 @@
                 generateGraph($(this).attr('nid'));
             });
             $('circle.node').mouseover(function() {
-                vis.selectAll('line.n-'+$(this).attr('nid')).attr('style', 'stroke: #f00; z-index: 1000; position: relative;');
+                vis.selectAll('line.n-'+$(this).attr('nid'))
+                    .attr('style', 'stroke: #f00; z-index: 1000; position: relative;');
             });
             $('circle.node').mouseout(function() {
                 vis.selectAll('line.n-'+$(this).attr('nid')).attr('style', '');

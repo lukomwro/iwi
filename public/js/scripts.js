@@ -85,7 +85,7 @@
                 .data(json.links)
                 .enter()
                 .append("svg:line")
-                .attr("class", "link")
+                .attr("class", function(d) { return "link n-" + d.source.nodeid + " n-" + d.target.nodeid;})
                 .style("stroke-width", function(d) { return Math.sqrt(d.value); })
                 .attr("x1", function(d) { return d.source.x; })
                 .attr("y1", function(d) { return d.source.y; })
@@ -142,7 +142,13 @@
             $('circle.node').click(function(event) {
                 force.stop();
                 generateGraph($(this).attr('nid'));
-            })
+            });
+            $('circle.node').mouseover(function() {
+                vis.selectAll('line.n-'+$(this).attr('nid')).attr('style', 'stroke: #f00; z-index: 1000; position: relative;');
+            });
+            $('circle.node').mouseout(function() {
+                vis.selectAll('line.n-'+$(this).attr('nid')).attr('style', '');
+            });
         });
     };
     $('#form-search').submit(function(event) {

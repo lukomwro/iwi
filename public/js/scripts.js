@@ -66,6 +66,10 @@
         .attr("height", h);
     var svg = vis[0][0];
     var generateGraph = function(id) {
+        if (id.length == 0) {
+            return
+        }
+        $('#loader').show();
         window.location.hash = id;
         d3.json('/ajax/nodes/' + id, function(json) {
             vis.selectAll('*').remove();
@@ -122,13 +126,16 @@
                 .text(function(d) { return d.name; });
 
             var i = 0;
-            force.on("tick", function() {
-                link.attr("x1", function(d) { return d.source.x; })
-                    .attr("y1", function(d) { return d.source.y; })
-                    .attr("x2", function(d) { return d.target.x; })
-                    .attr("y2", function(d) { return d.target.y; });
-                node.attr("cx", function(d) { return d.x; })
-                    .attr("cy", function(d) { return d.y; });
+            force.on("tick", function(alpha) {
+                if (alpha.alpha < 0.008) {
+                    $('#loader').hide();
+                    link.attr("x1", function(d) { return d.source.x; })
+                        .attr("y1", function(d) { return d.source.y; })
+                        .attr("x2", function(d) { return d.target.x; })
+                        .attr("y2", function(d) { return d.target.y; });
+                    node.attr("cx", function(d) { return d.x; })
+                        .attr("cy", function(d) { return d.y; });
+                }
             });
 
             $('circle.node').click(function(event) {

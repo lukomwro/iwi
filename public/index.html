@@ -25,7 +25,7 @@
     <div class="topbar">
       <div class="topbar-inner">
         <div class="container-fluid">
-          <strong class="brand">WikiZir</strong>
+          <strong class="brand">WikiWizir</strong>
           <form class="pull-left" action="" method="post" id="form-search">
             <input type="text" placeholder="Szukaj" id="form-search-input" autocomplete="off" />
             <input type="hidden" id="form-search-id" />
@@ -35,21 +35,15 @@
       </div>
     </div>
 
-    <div id="loader" style="display: none;"></div>
-    <div class="container-fluid">
-        <div class="sidebar">
-            <h2 id="element-name"></h2>
-            <ul id="element-children">
-            </ul>
-        </div>
-        <div class="content">
-          <div class="row">
-            <div class="span16">
-              <div id="chart"></div>
-            </div>
-          </div>
-        </div>
+    <div id="loader"></div>
+    <div id="sidebar">
+        <h2 id="element-name"></h2>
+        <ul id="element-children">
+        </ul>
     </div>
+
+    <div id="chart"></div>
+
     <script type="text/javascript" src="js/plugins.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
   </body>

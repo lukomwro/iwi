@@ -57,8 +57,8 @@
     /**
      * Wysyłanie formularza z wybranym nodem
      */
-    var w = 1000,
-        h = 800,
+    var w,
+        h,
         fill = d3.scale.category20();
     var vis = d3.select("#chart")
         .append("svg:svg")
@@ -144,10 +144,12 @@
                 generateGraph($(this).attr('nid'));
             });
             $('circle.node').mouseover(function() {
-                vis.selectAll('line.n-'+$(this).attr('nid')).attr('style', 'stroke: #f00; z-index: 1000; position: relative;');
+                vis.selectAll('line.n-'+$(this).attr('nid')).classed('hover', true);
+                $("#element-children a[data-id=" + $(this).attr('nid') + "]").addClass("mark");
             });
             $('circle.node').mouseout(function() {
-                vis.selectAll('line.n-'+$(this).attr('nid')).attr('style', '');
+                vis.selectAll('line.n-'+$(this).attr('nid')).classed('hover', false);
+                $("#element-children a[data-id=" + $(this).attr('nid') + "]").removeClass("mark");
             });
         });
     };
@@ -159,6 +161,11 @@
         }
         generateGraph($('#form-search-id').val());
     });
+
+    $(window).resize(function(){
+        w = $("#chart").width();
+        h = $("#chart").height();
+    }).resize();
 
     generateGraph(window.location.hash.substr(1));
 }());

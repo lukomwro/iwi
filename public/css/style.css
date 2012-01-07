@@ -24,6 +24,8 @@ circle.node {
 circle.node.selected {
     stroke: #f00;
     stroke-width: 2px;
+    position: relative;
+    z-index: 10;
 }
 
 line.link {
@@ -150,8 +152,8 @@ line.link {
 }
 
 #loader {
-    background: url('/img/loader.gif') no-repeat center center #fff;
-    position:absolute;
+    background: url('/img/loader.gif') no-repeat center center #fdfdfd;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;

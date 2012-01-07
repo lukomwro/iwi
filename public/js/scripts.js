@@ -49,10 +49,14 @@
         $('#form-search-id').val(data[1]);
     });
 
+    // Obłsuga cofnij - przegladarka
+    $(window).bind('hashchange', function() {
+        generateGraph(window.location.hash.substr(1));
+    });
+
     /**
      * Wysyłanie formularza z wybranym nodem
      */
-
     var w = 960,
         h = 500,
         fill = d3.scale.category20();
@@ -61,12 +65,6 @@
         .attr("width", w)
         .attr("height", h);
     var svg = vis[0][0];
-    window.location.hash.onchange = function() {
-    }
-    $(window).bind('hashchange', function() {
-        console.log(window.location.hash.substr(1));
-        generateGraph(window.location.hash.substr(1));
-    });
     var generateGraph = function(id) {
         window.location.hash = id;
         d3.json('/ajax/nodes/' + id, function(json) {
@@ -81,7 +79,8 @@
 
             var link = vis.selectAll("line.link")
                 .data(json.links)
-                .enter().append("svg:line")
+                .enter()
+                .append("svg:line")
                 .attr("class", "link")
                 .style("stroke-width", function(d) { return Math.sqrt(d.value); })
                 .attr("x1", function(d) { return d.source.x; })
@@ -95,7 +94,7 @@
                 .attr("class", "node")
                 .attr("cx", function(d) { return d.x; })
                 .attr("cy", function(d) { return d.y; })
-                .attr("nid", function(d) { return json.nodes[d.index].nodeid; })
+                .attr("nid", function(d) { return d.nodeid; })
                 .attr("r", 5)
                 .style("fill", function(d) { return fill(d.group); });
 

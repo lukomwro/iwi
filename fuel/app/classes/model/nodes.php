@@ -27,7 +27,7 @@ class Model_Nodes {
 	    	}
 	        $node_id[$index++] = $article['id'];
 	        $node_index_asoc[$article['id']] = $index;
-	        $json['nodes'][] = array('group' => 1, 'name' => $article['name'], 'nodeid' => $article['id']);
+	        $json['nodes'][] = array('group' => 1, 'name' => $article['name'], 'nodeid' => $article['id'], 'x' => 480, 'y' => 250);
 	    }
 	    $edges = DB::query("
 	        SELECT 

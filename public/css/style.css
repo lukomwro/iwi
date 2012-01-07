@@ -9,8 +9,10 @@ footer {
 /* Contain floats: h5bp.com/q */
 .cf:before, .cf:after { content: ""; display: table; }
 .cf:after { clear: both; }
-.cf { zoom: 1; }
-
+lcf { zoom: 1; }
+.container-fluid {
+  background: url("/img/Wikipedia-logo.png") no-repeat right -40px
+}
 
 
 /* Graph */

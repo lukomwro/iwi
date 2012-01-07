@@ -88,9 +88,10 @@
                 .attr("x2", function(d) { return d.target.x; })
                 .attr("y2", function(d) { return d.target.y; });
 
-
-            console.log($('#element-name').text(json.nodes[0].name));
+            // uzupelnianie wszyskich inputow i listy
             $('#form-search-input').val(json.nodes[0].name);
+            $('#form-search-id').val(json.nodes[0].nodeid);
+            $('#element-name').text(json.nodes[0].name);
             $('#element-children').children().each(function(key, data) {
                 this.parentNode.removeChild(this);
             });
@@ -98,12 +99,19 @@
                 if (0 == key) {
                     return;
                 }
-                $('#element-children').append('<li><a href="#'+data.nodeid+'">'+data.name+'</a></li>');
+                $('#element-children').append('<li><a data-id="'+data.nodeid+'" href="#' + data.nodeid + '">'+data.name+'</a></li>');
+            });
+            $('#element-children a').mouseover(function() {
+                $('#n-'+$(this).data('id')).attr('class', 'node selected');
+            });
+            $('#element-children a').mouseout(function() {
+                $('#n-'+$(this).data('id')).attr('class', 'node');
             });
             var node = vis.selectAll("circle.node")
                 .data(json.nodes)
                 .enter().append("svg:circle")
                 .attr("class", "node")
+                .attr("id", function(d) { return "n-" + d.nodeid; })
                 .attr("cx", function(d) { return d.x; })
                 .attr("cy", function(d) { return d.y; })
                 .attr("nid", function(d) { return d.nodeid; })

@@ -21,6 +21,10 @@ circle.node {
   stroke: #fff;
   stroke-width: 1.5px;
 }
+circle.node.selected {
+    stroke: #f00;
+    stroke-width: 2px;
+}
 
 line.link {
   stroke: #999;

@@ -6,7 +6,7 @@
 return array(
 	'default' => array(
 		'connection'  => array(
-			'dsn'        => 'mysql:host=localhost;dbname=lepszastr_iwi',
+			'dsn'        => 'mysql:host=mysql-500159.vipserv.org;dbname=lepszastr_iwi',
 			'username'   => 'lepszastr_iwi',
 			'password'   => 'iwi',
 		),

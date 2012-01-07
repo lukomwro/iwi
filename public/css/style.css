@@ -29,8 +29,8 @@ line.link {
 }
 
 circle.node.selected {
-    stroke: #f00;
-    stroke-width: 3px;
+  stroke: #0064cd;
+  stroke-width: 2px;
 }
 
 line.hover {

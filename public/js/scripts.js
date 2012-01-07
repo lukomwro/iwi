@@ -75,7 +75,7 @@
             vis.selectAll('*').remove();
             var force = d3.layout.force()
                 .charge(-120)
-                .linkDistance(250)
+                .linkDistance(300)
                 .nodes(json.nodes)
                 .links(json.links)
                 .size([w, h])
@@ -105,12 +105,7 @@
                 }
                 $('#element-children').append('<li><a data-id="'+data.nodeid+'" href="#' + data.nodeid + '">'+data.name+'</a></li>');
             });
-            $('#element-children a').mouseover(function() {
-                $('#n-'+$(this).data('id')).attr('class', 'node selected');
-            });
-            $('#element-children a').mouseout(function() {
-                $('#n-'+$(this).data('id')).attr('class', 'node');
-            });
+
             var node = vis.selectAll("circle.node")
                 .data(json.nodes)
                 .enter().append("svg:circle")
@@ -138,18 +133,28 @@
                     $('#loader').hide();
                 }
             });
-
             $('circle.node').click(function(event) {
                 force.stop();
                 generateGraph($(this).attr('nid'));
             });
             $('circle.node').mouseover(function() {
                 vis.selectAll('line.n-'+$(this).attr('nid')).classed('hover', true);
-                $(this).addClass('mark');
+                $('a[data-id='+$(this).attr('nid')+']').addClass('mark');
+                $(this).attr('class', 'node selected');
             });
             $('circle.node').mouseout(function() {
                 vis.selectAll('line.n-'+$(this).attr('nid')).classed('hover', false);
-                $(this).removeClass('mark');
+                $('a[data-id='+$(this).attr('nid')+']').removeClass('mark');
+                $(this).attr('class', 'node');
+            });
+
+            $('#element-children a').mouseover(function() {
+                $('#n-'+$(this).data('id')).attr('class', 'node selected');
+                vis.selectAll('line.n-'+$(this).data('id')).classed('hover', true);
+            });
+            $('#element-children a').mouseout(function() {
+                $('#n-'+$(this).data('id')).attr('class', 'node');
+                vis.selectAll('line.n-'+$(this).data('id')).classed('hover', false);
             });
         });
     };

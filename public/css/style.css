@@ -30,12 +30,16 @@ circle.node {
 
 line.link {
   stroke: #999;
-  stroke-opacity: .6;
+  stroke-opacity: .5;
      -moz-transition: all 0.2s linear;  
       -ms-transition: all 0.2s linear;  
        -o-transition: all 0.2s linear;  
   -webkit-transition: all 0.2s linear;  
           transition: all 0.2s linear;
+}
+
+.node-hover line.link {
+  stroke-opacity: .2;
 }
 
 circle.node.selected {
@@ -46,6 +50,7 @@ circle.node.selected {
 line.hover {
   stroke: #0064cd;
   stroke-width: 2px;
+  stroke-opacity: 1 !important;
 }
 
 /* Autocomplete */

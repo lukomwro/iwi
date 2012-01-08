@@ -145,11 +145,13 @@
                 generateGraph($(this).attr('nid'));
             });
             $('circle.node').mouseover(function() {
+                $("#chart").addClass("node-hover");
                 vis.selectAll('line.n-'+$(this).attr('nid')).classed('hover', true);
                 $('a[data-id='+$(this).attr('nid')+']').addClass('mark');
                 $(this).attr('class', 'node selected');
             });
             $('circle.node').mouseout(function() {
+                $("#chart").removeClass("node-hover");
                 vis.selectAll('line.n-'+$(this).attr('nid')).classed('hover', false);
                 $('a[data-id='+$(this).attr('nid')+']').removeClass('mark');
                 $(this).attr('class', 'node');

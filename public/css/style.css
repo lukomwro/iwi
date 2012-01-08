@@ -158,6 +158,17 @@ line.hover {
   width: 0;
 }
 
+
+#settings-btn {
+  color: #888;
+  margin: 5px 200px 0 0;
+  float: right;
+}
+
+#settings form {
+  margin: 0;
+}
+
 #loader {
     background: url('../img/loader.gif') no-repeat center center #fdfdfd;
     position: fixed;
@@ -175,7 +186,7 @@ line.hover {
   bottom: 0;
   left: 250px;
   right: 0;
-  overflow: auto;
+  /*overflow: auto;*/
 }
 
 #sidebar {
@@ -197,6 +208,11 @@ line.hover {
   margin: 0;
   padding: 10px 5px 10px 10px;
   overflow: hidden;
+}
+
+#instructions {
+  padding: 0 20px 0 10px;
+  text-align:  justify;
 }
 
 #element-children {

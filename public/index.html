@@ -30,18 +30,56 @@
             <input type="hidden" id="form-search-id" />
             <button id="form-search-submit" class="btn primary">Pokaż</button>
           </form>
+          <a href="#" class="btn" id="settings-btn">Ustawienia</a>
         </div>
       </div>
     </div>
 
     <div id="loader"></div>
     <div id="sidebar">
-        <h2 id="element-name"></h2>
+        <h2 id="element-name">O programie</h2>
+        <div id="instructions">
+          <p>Aby wyświetlić graf powiązań danego artykułu zacznij wpisywać tekst w polu powyżej i wybierz odpowiedni element z listy autouzupełniania.</p>
+          <p>Możesz zmieniać główny artykuł klikając na wierzchołki grafu, wybierając je z listy wyświetlonej w pasku bocznym lub wyszukując inny element w powyższym polu.</p>
+          <p>Przycisk "ustawienia" pozwoli Ci dostosować parametry algorytmu rysującego graf.</p>
+          <h3>Autorzy</h3>
+          <p>Autorami programu są Wojciech Urbański, Marcin Waligórski, Łukasz Wróblewski oraz Daniel Wegner. Aplikacja została stworzona w ramach projektu z przedmiotu Wizualizacja Informacji na kierunku Informatyka, ETI, PG.
+        </div>
         <ul id="element-children">
         </ul>
     </div>
 
     <div id="chart"></div>
+
+    
+
+
+
+        <div id="settings" class="modal fade">
+          <div class="modal-header">
+            <a href="#" class="close">×</a>
+            <h3>Ustawienia renderowania grafu</h3>
+          </div>
+            <form action="/" method="post" id="settings-form">
+              <div class="modal-body">
+                <div class="clearfix">
+                  <label for="charge">Charge</label>
+                  <div class="input">
+                    <input class="xlarge" id="charge" name="charge" size="30" type="text" value="-120">
+                  </div>
+                </div>
+                <div class="clearfix">
+                  <label for="link-distance">Link distance</label>
+                  <div class="input">
+                    <input class="xlarge" id="link-distance" name="link-distance" size="30" type="text" value="300">
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button class="btn primary" id="settings-close">Ok</a>
+              </div>
+            </form>
+        </div>
 
     <script type="text/javascript" src="js/plugins.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>

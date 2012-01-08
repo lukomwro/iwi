@@ -32,7 +32,8 @@
     }
   
     $("#form-search-input").autocomplete(
-        "/ajax/list/", {
+        //"/ajax/list/", {
+        "http://wikiwizir.yum.pl/ajax/list/", {
             delay:10,
             minChars:2,
             matchSubset:1,
@@ -59,6 +60,8 @@
      */
     var w,
         h,
+        charge,
+        linkDistance,
         fill = d3.scale.category20();
     var vis = d3.select("#chart")
         .append("svg:svg")
@@ -67,15 +70,19 @@
     var svg = vis[0][0];
     var generateGraph = function(id) {
         if (id.length == 0) {
+            $("#element-name").text("O programie");
+            $("#instructions").show();
             return
         }
+        $("#instructions").hide();
         $('#loader').show();
         window.location.hash = id;
-        d3.json('/ajax/nodes/' + id, function(json) {
+        //d3.json('/ajax/nodes/' + id, function(json) {
+        d3.json('json.html?' + id, function(json) {
             vis.selectAll('*').remove();
             var force = d3.layout.force()
-                .charge(-120)
-                .linkDistance(300)
+                .charge(charge)
+                .linkDistance(linkDistance)
                 .nodes(json.nodes)
                 .links(json.links)
                 .size([w, h])
@@ -172,5 +179,34 @@
         h = $("#chart").height();
     }).resize();
 
+
+
+    $('#settings').modal({
+        backdrop: true,
+        closeOnEscape: true,
+        modal: true
+    });
+
+
+    $("#settings-btn").click(function() {
+        $('#settings').modal("show");
+        return false;
+    });
+    $("#settings-form").submit(function() {
+        $('#settings').modal("hide");
+        return false;
+    });
+
+    $("#charge").change(function() {
+        charge = $(this).val();
+    }).change();
+    
+    $("#link-distance").change(function() {
+        linkDistance = $(this).val();
+    }).change();
+
+
     generateGraph(window.location.hash.substr(1));
+
+
 }());

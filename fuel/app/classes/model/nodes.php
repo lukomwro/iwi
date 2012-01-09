@@ -13,7 +13,7 @@ class Model_Nodes {
 			FROM article_article AS aa
 			JOIN article AS a ON a.id = id_article_to
 			WHERE id_article_from = {$id}
-			ORDER BY id_article_to
+			ORDER BY a.name
 		");
 	    $node_id = array($id);
 	    $node_index_asoc = array($id => 0);

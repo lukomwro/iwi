@@ -274,7 +274,7 @@ $.Autocompleter = function(input, options) {
 			stopLoading();
 			select.hide();
 		}
-	};
+	}
 
 	function trimWords(value) {
 		if (!value)
@@ -313,12 +313,12 @@ $.Autocompleter = function(input, options) {
 			// select the portion of the value not typed by the user (so the next character will erase)
 			$(input).selection(previousValue.length, previousValue.length + sValue.length);
 		}
-	};
+	}
 
 	function hideResults() {
 		clearTimeout(timeout);
 		timeout = setTimeout(hideResultsNow, 200);
-	};
+	}
 
 	function hideResultsNow() {
 		var wasVisible = select.visible();
@@ -343,7 +343,7 @@ $.Autocompleter = function(input, options) {
 				}
 			);
 		}
-	};
+	}
 
 	function receiveData(q, data) {
 		if ( data && data.length && hasFocus ) {
@@ -354,7 +354,7 @@ $.Autocompleter = function(input, options) {
 		} else {
 			hideResultsNow();
 		}
-	};
+	}
 
 	function request(term, success, failure) {
 		if (!options.matchCase)
@@ -399,7 +399,7 @@ $.Autocompleter = function(input, options) {
         failure(term);
 			}
 		}
-	};
+	}
 
 	function parse(data) {
 		var parsed = [];
@@ -416,11 +416,11 @@ $.Autocompleter = function(input, options) {
 			}
 		}
 		return parsed;
-	};
+	}
 
 	function stopLoading() {
 		$input.removeClass(options.loadingClass);
-	};
+	}
 
 };
 
@@ -521,7 +521,7 @@ $.Autocompleter.Cache = function(options) {
 			if ( nullData++ < options.max ) {
 				stMatchSets[""].push(row);
 			}
-		};
+		}
 
 		// add the data items to the cache
 		$.each(stMatchSets, function(i, value) {
@@ -545,6 +545,7 @@ $.Autocompleter.Cache = function(options) {
 		add: add,
 		populate: populate,
 		load: function(q) {
+            var csub = [], c, k, i;
 			if (!options.cacheLength || !length)
 				return null;
 			/* 
@@ -553,13 +554,12 @@ $.Autocompleter.Cache = function(options) {
 			 */
 			if( !options.url && options.matchContains ){
 				// track all matches
-				var csub = [];
 				// loop through all the data grids for matches
-				for( var k in data ){
+				for( k in data ){
 					// don't search through the stMatchSets[""] (minChars: 0) cache
 					// this prevents duplicates
 					if( k.length > 0 ){
-						var c = data[k];
+						c = data[k];
 						$.each(c, function(i, x) {
 							// if we've got a match, add it to the array
 							if (matchSubset(x.value, q)) {
@@ -575,10 +575,10 @@ $.Autocompleter.Cache = function(options) {
 				return data[q];
 			} else
 			if (options.matchSubset) {
-				for (var i = q.length - 1; i >= options.minChars; i--) {
-					var c = data[q.substr(0, i)];
+				for (i = q.length - 1; i >= options.minChars; i--) {
+					c = data[q.substr(0, i)];
 					if (c) {
-						var csub = [];
+						csub = [];
 						$.each(c, function(i, x) {
 							if (matchSubset(x.value, q)) {
 								csub[csub.length] = x;
@@ -671,7 +671,7 @@ $.Autocompleter.Select = function (options, input, select, config) {
                 list.scrollTop(offset);
             }
         }
-	};
+	}
 
 	function movePosition(step) {
 		if (options.scrollJumpPosition || (!options.scrollJumpPosition && !((step < 0 && active == 0) || (step > 0 && active == listItems.size() - 1)) )) {
@@ -790,7 +790,7 @@ $.Autocompleter.Select = function (options, input, select, config) {
 		unbind: function() {
 			element && element.remove();
 		}
-	};
+	}
 };
 
 $.fn.selection = function(start, end) {

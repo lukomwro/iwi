@@ -32,6 +32,7 @@
      */
     $(w).bind('hashchange', function() {
         GraphSettings.generateGraph(window.location.hash.substr(1));
+
     });
     $(w).resize(function(){
         GraphSettings.width = $("#chart").width();

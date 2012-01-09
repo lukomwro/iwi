@@ -120,7 +120,7 @@
                     if (0 == key) {
                         return;
                     }
-                    $('#element-children').append('<li><a class="nodeLink" data-id="'+data.nodeid+'" href="#' + data.nodeid + '">'+data.name+'</a><a class="wiki" href="//en.wikipedia.org/wiki/'+data.name+'">wiki &raquo;</a></li>');
+                    $('#element-children').append('<li><a class="nodeLink" data-id="'+data.nodeid+'" href="#' + data.nodeid + '">'+data.name+'</a><a class="wiki" href="//en.wikipedia.org/wiki/'+data.name+'">wiki</a></li>');
                 });
 
                 node = vis.selectAll("circle.node")

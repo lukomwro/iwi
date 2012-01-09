@@ -110,7 +110,7 @@
                 if (0 == key) {
                     return;
                 }
-                $('#element-children').append('<li><a data-id="'+data.nodeid+'" href="#' + data.nodeid + '">'+data.name+'</a><a href="//en.wikipedia.org/wiki/"'+data.name+'">wiki &raquo;</a></li>');
+                $('#element-children').append('<li><a class="nodeLink" data-id="'+data.nodeid+'" href="#' + data.nodeid + '">'+data.name+'</a><a class="wiki" href="//en.wikipedia.org/wiki/'+data.name+'">wiki &raquo;</a></li>');
             });
 
             var node = vis.selectAll("circle.node")
@@ -157,11 +157,11 @@
                 $(this).attr('class', 'node');
             });
 
-            $('#element-children a').mouseover(function() {
+            $('#element-children a.nodeLink').mouseover(function() {
                 $('#n-'+$(this).data('id')).attr('class', 'node selected');
                 vis.selectAll('line.n-'+$(this).data('id')).classed('hover', true);
             });
-            $('#element-children a').mouseout(function() {
+            $('#element-children a.nodeLink').mouseout(function() {
                 $('#n-'+$(this).data('id')).attr('class', 'node');
                 vis.selectAll('line.n-'+$(this).data('id')).classed('hover', false);
             });

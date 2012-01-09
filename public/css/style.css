@@ -265,6 +265,10 @@ line.hover {
           border-radius: 0 6px 6px 0;
 }
 
+#element-children a.wiki {
+  float: right;
+}
+
 #element-children .mark,
 #element-children a:hover {
   background-color: #0064cd;

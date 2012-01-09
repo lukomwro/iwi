@@ -51,35 +51,31 @@
 
     <div id="chart"></div>
 
-    
-
-
-
-        <div id="settings" class="modal fade">
-          <div class="modal-header">
-            <a href="#" class="close">×</a>
-            <h3>Ustawienia renderowania grafu</h3>
+    <div id="settings" class="modal fade">
+      <div class="modal-header">
+        <a href="#" class="close">×</a>
+        <h3>Ustawienia renderowania grafu</h3>
+      </div>
+        <form action="/" method="post" id="settings-form">
+          <div class="modal-body">
+            <div class="clearfix">
+              <label for="charge">Charge</label>
+              <div class="input">
+                <input class="xlarge" id="charge" name="charge" size="30" type="text" value="-120">
+              </div>
+            </div>
+            <div class="clearfix">
+              <label for="link-distance">Link distance</label>
+              <div class="input">
+                <input class="xlarge" id="link-distance" name="link-distance" size="30" type="text" value="300">
+              </div>
+            </div>
           </div>
-            <form action="/" method="post" id="settings-form">
-              <div class="modal-body">
-                <div class="clearfix">
-                  <label for="charge">Charge</label>
-                  <div class="input">
-                    <input class="xlarge" id="charge" name="charge" size="30" type="text" value="-120">
-                  </div>
-                </div>
-                <div class="clearfix">
-                  <label for="link-distance">Link distance</label>
-                  <div class="input">
-                    <input class="xlarge" id="link-distance" name="link-distance" size="30" type="text" value="300">
-                  </div>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button class="btn primary" id="settings-close">Ok</a>
-              </div>
-            </form>
-        </div>
+          <div class="modal-footer">
+            <button class="btn primary" id="settings-close">Ok</a>
+          </div>
+        </form>
+    </div>
 
     <script type="text/javascript" src="js/plugins.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>

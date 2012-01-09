@@ -113,7 +113,6 @@
                 $('#form-search-id').val(json.nodes[0].nodeid);
                 $('#element-name').text(json.nodes[0].name);
                 $('#element-children').children().each(function() {
-                    console.log(this);
                     this.parentNode.removeChild(this);
                 });
                 $(json.nodes).each(function(key, data) {
@@ -132,9 +131,24 @@
                     .attr("cy", function(d) { return d.y; })
                     .attr("nid", function(d) { return d.nodeid; })
                     .attr("r", 5)
-                    .style("fill", function(d) { return fill(d.group); });
+                    .style("fill", function(d) { return fill(d.group); })
+                    .on("click", function(d) {
+                        GraphSettings.generateGraph(d.nodeid);
+                    })
+                    .on('mouseover', function(d) {
+                        $("#chart").addClass("node-hover");
+                        vis.selectAll('line.n-'+d.nodeid).classed('hover', true);
+                        $('a[data-id='+d.nodeid+']').addClass('mark');
+                        $(this).attr('class', 'node selected');
+                    })
+                    .on('mouseout', function(d) {
+                        $("#chart").removeClass("node-hover");
+                        vis.selectAll('line.n-'+d.nodeid).classed('hover', false);
+                        $('a[data-id='+d.nodeid+']').removeClass('mark');
+                        $(this).attr('class', 'node');
+                    });
 
-                node.append("svg:title")
+                node.append('svg:title')
                     .text(function(d) { return d.name; });
 
                 force.on("tick", function(alpha) {
@@ -148,24 +162,6 @@
                         force.stop();
                         $('#loader').hide();
                     }
-                });
-
-                $('circle.node').click(function() {
-                    GraphSettings.generateGraph($(this).attr('nid'));
-                });
-
-                $('circle.node').mouseover(function() {
-                    $("#chart").addClass("node-hover");
-                    vis.selectAll('line.n-'+$(this).attr('nid')).classed('hover', true);
-                    $('a[data-id='+$(this).attr('nid')+']').addClass('mark');
-                    $(this).attr('class', 'node selected');
-                });
-
-                $('circle.node').mouseout(function() {
-                    $("#chart").removeClass("node-hover");
-                    vis.selectAll('line.n-'+$(this).attr('nid')).classed('hover', false);
-                    $('a[data-id='+$(this).attr('nid')+']').removeClass('mark');
-                    $(this).attr('class', 'node');
                 });
 
                 $('#element-children a.nodeLink').mouseover(function() {

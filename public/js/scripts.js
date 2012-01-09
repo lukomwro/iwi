@@ -75,7 +75,7 @@
             return;
         }
         GraphSettings.generateGraph($('#form-search-id').val());
-      });
+    });
 
     (function() {
         var vis = d3.select("#chart").append("svg:svg"),
@@ -114,14 +114,15 @@
                 $('#form-search-input').val(json.nodes[0].name);
                 $('#form-search-id').val(json.nodes[0].nodeid);
                 $('#element-name').text(json.nodes[0].name);
-                $('#element-children').children(function() {
+                $('#element-children').children().each(function() {
+                    console.log(this);
                     this.parentNode.removeChild(this);
                 });
                 $(json.nodes).each(function(key, data) {
                     if (0 == key) {
                         return;
                     }
-                    $('#element-children').append('<li><a class="nodeLink" data-id="'+data.nodeid+'" href="#' + data.nodeid + '">'+data.name+'</a><a class="wiki" href="//en.wikipedia.org/wiki/'+data.name+'">wiki &raquo;</a></li>');
+                    $('#element-children').append('<li><a class="nodeLink" data-id="'+data.nodeid+'" href="#' + data.nodeid + '">'+data.name+'</a><a class="wiki" href="//en.wikipedia.org/wiki/'+data.name+'">wiki</a></li>');
                 });
 
                 node = vis.selectAll("circle.node")

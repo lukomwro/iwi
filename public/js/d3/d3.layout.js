@@ -4,7 +4,6 @@ d3.layout.force = function() {
   var force = {},
       event = d3.dispatch("tick"),
       size = [1, 1],
-      drag,
       alpha,
       friction = .9,
       linkDistance = d3_layout_forceLinkDistance,
@@ -257,50 +256,8 @@ d3.layout.force = function() {
     alpha = 0;
     return force;
   };
-
-  // use `node.call(force.drag)` to make nodes draggable
-  force.drag = function() {
-    if (!drag) drag = d3.behavior.drag()
-        .origin(Object)
-        .on("dragstart", dragstart)
-        .on("drag", d3_layout_forceDrag)
-        .on("dragend", d3_layout_forceDragEnd);
-
-    this.on("mouseover.force", d3_layout_forceDragOver)
-        .on("mouseout.force", d3_layout_forceDragOut)
-        .call(drag);
-  };
-
-  function dragstart(d) {
-    d3_layout_forceDragOver(d3_layout_forceDragNode = d);
-    d3_layout_forceDragForce = force;
-  }
-
   return d3.rebind(force, event, "on");
 };
-
-var d3_layout_forceDragForce,
-    d3_layout_forceDragNode;
-
-function d3_layout_forceDragOver(d) {
-  d.fixed |= 2;
-}
-
-function d3_layout_forceDragOut(d) {
-  if (d !== d3_layout_forceDragNode) d.fixed &= 1;
-}
-
-function d3_layout_forceDragEnd() {
-  d3_layout_forceDrag();
-  d3_layout_forceDragNode.fixed &= 1;
-  d3_layout_forceDragForce = d3_layout_forceDragNode = null;
-}
-
-function d3_layout_forceDrag() {
-  d3_layout_forceDragNode.px = d3.event.x;
-  d3_layout_forceDragNode.py = d3.event.y;
-  d3_layout_forceDragForce.resume(); // restart annealing
-}
 
 function d3_layout_forceAccumulate(quad, alpha, charges) {
   var cx = 0,

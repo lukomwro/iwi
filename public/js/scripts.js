@@ -110,7 +110,7 @@
                 if (0 == key) {
                     return;
                 }
-                $('#element-children').append('<li><a data-id="'+data.nodeid+'" href="#' + data.nodeid + '">'+data.name+'</a></li>');
+                $('#element-children').append('<li><a data-id="'+data.nodeid+'" href="#' + data.nodeid + '">'+data.name+'</a><a href="//en.wikipedia.org/wiki/"'+data.name+'">wiki &raquo;</a></li>');
             });
 
             var node = vis.selectAll("circle.node")

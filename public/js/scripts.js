@@ -81,6 +81,9 @@
             fill = d3.scale.category20();
 
         GraphSettings.generateGraph = function(id) {
+            if (!id.length) {
+                return;
+            }
             var force, link, node;
             w.location.hash = id;
             $("#instructions").hide();
@@ -181,7 +184,7 @@
     $(d).ready(function(){
         var hash = w.location.hash.substr(1);
         GraphSettings.generateGraph(hash);
-        if (hash.length == 0) {
+        if (!hash.length) {
             $("#element-name").text("O programie");
             $("#instructions").show();
         }

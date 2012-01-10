@@ -96,7 +96,7 @@
             var force, link, node;
             w.location.hash = id;
             $("#instructions").hide();
-            $('#loader').fadeIn(300);
+            $('#loader').fadeIn(100);
             //d3.json('json.html?'+id, function(json) {
             d3.json('/ajax/nodes/'+id, function(json) {
                 vis.selectAll('*').remove();
@@ -170,7 +170,7 @@
                         node.attr("cx", function(d) { return d.x; })
                             .attr("cy", function(d) { return d.y; });
                         force.stop();
-                        $('#loader').fadeOut(300);
+                        $('#loader').fadeOut(500);
                     }
                 });
 

@@ -245,7 +245,7 @@ line.hover {
 ================================================================*/
 #settings-btn {
   color: #888;
-  margin: 5px 200px 0 0;
+  margin: 5px 10px 0 0;
   float: right;
 }
 
@@ -275,6 +275,73 @@ line.hover {
 
 #wiki-browser .modal-body {
   padding: 0;
+}
+
+
+/*================================================================
+=== Help layer
+================================================================*/
+#help-btn {
+  float: right;
+  margin: 5px 200px 0 0;
+}
+
+#help {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10001;
+  background: rgba(0,0,0,.2);
+}
+
+#help-search {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+}
+
+#help-sidebar {
+  position: fixed;
+  top: auto;
+  bottom: 10px;
+  left: 260px;
+}
+
+#help-settings {
+  position: fixed;
+  top: 50px;
+  left: auto;
+  right: 200px;
+}
+
+#help-graph {
+  position: fixed;
+  top: 230px;
+  left: 50%;
+  margin-left: -150px;
+}
+
+#help-authors {
+  position: fixed;
+  top: auto;
+  bottom: 50px;
+  left: auto;
+  right: 5px;
+}
+
+#hint {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: #fff;
+  padding: 5px 8px;
+  border: solid 1px #ccc;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
 }
 
 /*================================================================

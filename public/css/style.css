@@ -267,6 +267,7 @@ line.hover {
 === Wikipedia preview window
 ================================================================*/
 #wiki-browser {
+  display: none;
   width: 980px;
   margin-left: -490px;
   margin-top: -300px;

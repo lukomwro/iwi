@@ -66,6 +66,14 @@
     }).change();
 
     /**
+     * Wiki browser
+     */
+    $('#wiki-browser').modal({
+        backdrop: true,
+        modal: true
+    });
+
+    /**
      * Submit event
      */
     $('#form-search').submit(function(event) {
@@ -174,6 +182,13 @@
                 $('#element-children a.nodeLink').mouseout(function() {
                     $('#n-'+$(this).data('id')).attr('class', 'node');
                     vis.selectAll('line.n-'+$(this).data('id')).classed('hover', false);
+                });
+
+                $('#element-children a.wiki').click(function() {
+                    $('#wiki-browser').find('h3 span').text($(this).prev().text());
+                    $('#wiki-browser').find('iframe').attr("src", $(this).attr("href"));
+                    $('#wiki-browser').modal("show");
+                    return false;
                 });
             });
         };

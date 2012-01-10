@@ -1,3 +1,6 @@
+/*================================================================
+=== Main styles
+================================================================*/
 html,
 body {
   overflow: hidden;
@@ -16,46 +19,24 @@ lcf { zoom: 1; }
 }
 
 
-/* Graph */
-
-circle.node {
-  stroke: #fff;
-  stroke-width: 1.5px;
-     -moz-transition: all 0.3s linear;  
-      -ms-transition: all 0.3s linear;  
-       -o-transition: all 0.3s linear;  
-  -webkit-transition: all 0.3s linear;  
-          transition: all 0.3s linear;
+/*================================================================
+=== Loader
+================================================================*/
+#loader {
+  background: url('../img/loader.gif') no-repeat center center #fdfdfd;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: none;
 }
 
-line.link {
-  stroke: #999;
-  stroke-width: 1px;
-  stroke-opacity: .2;
-     -moz-transition: all 0.2s linear;  
-      -ms-transition: all 0.2s linear;  
-       -o-transition: all 0.2s linear;  
-  -webkit-transition: all 0.2s linear;  
-          transition: all 0.2s linear;
-}
 
-/*.node-hover line.link {
-  stroke-opacity: .1;
-}*/
-
-circle.node.selected {
-  stroke: #0064cd;
-  stroke-width: 3px;
-}
-
-line.hover {
-  stroke: #0064cd;
-  stroke-width: 1.5px;
-  stroke-opacity: 1 !important;
-}
-
-/* Autocomplete */
-
+/*================================================================
+=== Autocomplete
+================================================================*/
 .ac_results {
   margin: -4px 0 0 0;
   padding: 0px;
@@ -85,17 +66,8 @@ line.hover {
   padding: 2px 5px;
   cursor: default;
   display: block;
-  /* 
-  if width will be 100% horizontal scrollbar will apear 
-  when scroll mode will be used
-  */
-  /*width: 100%;*/
   font: menu;
   font-size: 12px;
-  /* 
-  it is very important, if line-height not setted or setted 
-  in relative units scroll will be broken in firefox
-  */
   line-height: 16px;
   overflow: hidden;
 }
@@ -123,6 +95,188 @@ line.hover {
   color: white;
 }
 
+
+/*================================================================
+=== Graph
+================================================================*/
+#chart {
+  position: fixed;
+  top: 40px;
+  bottom: 0;
+  left: 250px;
+  right: 0;
+  /*overflow: auto;*/
+}
+
+circle.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+     -moz-transition: all 0.3s linear;  
+      -ms-transition: all 0.3s linear;  
+       -o-transition: all 0.3s linear;  
+  -webkit-transition: all 0.3s linear;  
+          transition: all 0.3s linear;
+}
+
+line.link {
+  stroke: #999;
+  stroke-width: 1px;
+  stroke-opacity: .2;
+     -moz-transition: all 0.2s linear;  
+      -ms-transition: all 0.2s linear;  
+       -o-transition: all 0.2s linear;  
+  -webkit-transition: all 0.2s linear;  
+          transition: all 0.2s linear;
+}
+
+circle.node.selected {
+  stroke: #0064cd;
+  stroke-width: 3px;
+}
+
+line.hover {
+  stroke: #0064cd;
+  stroke-width: 1.5px;
+  stroke-opacity: 1 !important;
+}
+
+
+/*================================================================
+=== Sidebar
+================================================================*/
+#sidebar {
+  position: fixed;
+  top: 40px;
+  bottom: 0;
+  overflow: auto;
+  width: 250px;
+  padding: 10px 0 10px 10px;
+  margin: -10px 0 -10px -10px;
+  background: #f5f5f5;
+  border-right: solid 1px #eee;
+  -moz-box-shadow:    inset 0 0 10px rgba(0,0,0,.3);
+  -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,.3);
+  box-shadow:         inset 0 0 10px rgba(0,0,0,.3);
+}
+
+#element-name {
+  margin: 0;
+  padding: 10px 5px 10px 10px;
+  overflow: hidden;
+}
+
+#element-children {
+  margin: 0;
+  padding: 10px 0;
+  list-style: none;
+}
+
+#element-children li {
+  position: relative;
+}
+
+#element-children a {
+  display: block;
+  padding: 2px 20px 2px 15px;
+  margin-right: 5px;
+  color: #666;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  -webkit-border-radius: 0 6px 6px 0;
+     -moz-border-radius: 0 6px 6px 0;
+          border-radius: 0 6px 6px 0;
+}
+
+#element-children .mark,
+#element-children li:hover a,
+#element-children a:hover {
+  background-color: #0064cd;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd));
+  background-image: -moz-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -ms-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0064cd));
+  background-image: -webkit-linear-gradient(top, #049cdb, #0064cd);
+  background-image: -o-linear-gradient(top, #049cdb, #0064cd);
+  background-image: linear-gradient(top, #049cdb, #0064cd);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#049cdb', endColorstr='#0064cd', GradientType=0);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  color: white;
+  text-decoration: none;
+  -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
+     -moz-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+
+#element-children li a.wiki {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  z-index: 1;
+  height: 12px;
+  margin-top: -10px;
+  padding: 5px 13px 5px 0;
+  font-size: 11px;
+  line-height: 12px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAFZJREFUeF59z4EJADEIQ1F36k7u5E7ZKXeUQPACJ3wK7UNokVxVk9kHnQH7bY9hbDyDhNXgjpRLqFlo4M2GgfyJHhjq8V4agfrgPQX3JtJQGbofmCHgA/nAKks+JAjFAAAAAElFTkSuQmCC) center right no-repeat;
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+     -moz-transition: all 0.1s linear;
+      -ms-transition: all 0.1s linear;
+       -o-transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+          transition: all 0.1s linear;
+}
+
+#element-children li:hover .wiki {
+  display: block;
+}
+
+#element-children .wiki:hover {
+  padding-right: 15px;
+  text-shadow: 0 0 6px #003b76, 0 0 5px #003b76;
+}
+
+
+/*================================================================
+=== Settings window
+================================================================*/
+#settings-btn {
+  color: #888;
+  margin: 5px 200px 0 0;
+  float: right;
+}
+
+#settings form {
+  margin: 0;
+}
+
+
+/*================================================================
+=== Instructions window
+================================================================*/
+#instructions {
+  padding: 0 20px 0 10px;
+  text-align:  justify;
+}
+
+
+/*================================================================
+=== Wikipedia preview window
+================================================================*/
+#wiki-browser {
+  width: 980px;
+  margin-left: -490px;
+  margin-top: -310px;
+}
+
+
+
+/*================================================================
+=== Scrollbars
+================================================================*/
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -189,106 +343,4 @@ line.hover {
 
 ::-webkit-scrollbar-corner:horizontal {
   width: 0;
-}
-
-
-#settings-btn {
-  color: #888;
-  margin: 5px 200px 0 0;
-  float: right;
-}
-
-#settings form {
-  margin: 0;
-}
-
-#loader {
-    background: url('../img/loader.gif') no-repeat center center #fdfdfd;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    display: none;
-}
-
-#chart {
-  position: fixed;
-  top: 40px;
-  bottom: 0;
-  left: 250px;
-  right: 0;
-  /*overflow: auto;*/
-}
-
-#sidebar {
-  position: fixed;
-  top: 40px;
-  bottom: 0;
-  overflow: auto;
-  width: 250px;
-  padding: 10px 0 10px 10px;
-  margin: -10px 0 -10px -10px;
-  background: #f5f5f5;
-  border-right: solid 1px #eee;
-  -moz-box-shadow:    inset 0 0 10px rgba(0,0,0,.3);
-  -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,.3);
-  box-shadow:         inset 0 0 10px rgba(0,0,0,.3);
-}
-
-#element-name {
-  margin: 0;
-  padding: 10px 5px 10px 10px;
-  overflow: hidden;
-}
-
-#instructions {
-  padding: 0 20px 0 10px;
-  text-align:  justify;
-}
-
-#element-children {
-  margin: 0;
-  padding: 10px 0;
-  list-style: none;
-}
-
-#element-children a {
-  display: block;
-  padding: 2px 10px 2px 15px;
-  margin-right: 5px;
-  color: #666;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  -webkit-border-radius: 0 6px 6px 0;
-     -moz-border-radius: 0 6px 6px 0;
-          border-radius: 0 6px 6px 0;
-}
-
-#element-children a.wiki {
-  float: right;
-}
-
-#element-children .mark,
-#element-children a:hover {
-  background-color: #0064cd;
-  background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#049cdb), to(#0064cd));
-  background-image: -moz-linear-gradient(top, #049cdb, #0064cd);
-  background-image: -ms-linear-gradient(top, #049cdb, #0064cd);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #049cdb), color-stop(100%, #0064cd));
-  background-image: -webkit-linear-gradient(top, #049cdb, #0064cd);
-  background-image: -o-linear-gradient(top, #049cdb, #0064cd);
-  background-image: linear-gradient(top, #049cdb, #0064cd);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#049cdb', endColorstr='#0064cd', GradientType=0);
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  color: white;
-  text-decoration: none;
-  -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
-     -moz-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
-          box-shadow: 0 2px 1px rgba(0, 0, 0, 0.4);
-}
-
-#element-children .mark {
-
 }

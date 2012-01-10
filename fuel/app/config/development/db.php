@@ -6,7 +6,7 @@
 return array(
 	'default' => array(
 		'connection'  => array(
-			'dsn'        => 'mysql:host=172.25.25.107;dbname=wiki',
+			'dsn'        => 'mysql:host=localhost;dbname=wiki',
 			'username'   => 'iwi',
 			'password'   => 'iwi',
 		),

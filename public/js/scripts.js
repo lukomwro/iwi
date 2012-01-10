@@ -185,7 +185,9 @@
                 });
 
                 $('#element-children a.wiki').click(function() {
-                    $('#wiki-browser').find('h3 span').text($(this).prev().text());
+                    $('#wiki-browser').find('h3 a')
+                        .text($(this).prev().text())
+                        .attr('href', $(this).attr("href"));
                     $('#wiki-browser').find('iframe').attr("src", $(this).attr("href"));
                     $('#wiki-browser').modal("show");
                     return false;

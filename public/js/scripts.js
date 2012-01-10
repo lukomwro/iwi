@@ -12,6 +12,7 @@
      * Setting up auto complete
      */
     $("#form-search-input").autocomplete(
+        //"http://wikiwizir.yum.pl/ajax/list/", {
         "/ajax/list/", {
             delay:10,
             minChars:2,
@@ -65,6 +66,14 @@
     }).change();
 
     /**
+     * Wiki browser
+     */
+    $('#wiki-browser').modal({
+        backdrop: true,
+        modal: true
+    });
+
+    /**
      * Submit event
      */
     $('#form-search').submit(function(event) {
@@ -88,6 +97,7 @@
             w.location.hash = id;
             $("#instructions").hide();
             $('#loader').show();
+            //d3.json('json.html?'+id, function(json) {
             d3.json('/ajax/nodes/'+id, function(json) {
                 vis.selectAll('*').remove();
                 force = d3.layout.force()
@@ -172,6 +182,15 @@
                 $('#element-children a.nodeLink').mouseout(function() {
                     $('#n-'+$(this).data('id')).attr('class', 'node');
                     vis.selectAll('line.n-'+$(this).data('id')).classed('hover', false);
+                });
+
+                $('#element-children a.wiki').click(function() {
+                    $('#wiki-browser').find('h3 a')
+                        .text($(this).prev().text())
+                        .attr('href', $(this).attr("href"));
+                    $('#wiki-browser').find('iframe').attr("src", $(this).attr("href"));
+                    $('#wiki-browser').modal("show");
+                    return false;
                 });
             });
         };

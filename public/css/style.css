@@ -73,7 +73,7 @@ lcf { zoom: 1; }
 }
 
 .ac_loading {
-  background: white url('../img/indicator.gif') right center no-repeat;
+  background: white url('../img/indicator.gif') 210px center no-repeat;
 }
 
 .ac_odd {
@@ -177,7 +177,7 @@ line.hover {
 
 #element-children a {
   display: block;
-  padding: 2px 20px 2px 15px;
+  padding: 2px 40px 2px 15px;
   margin-right: 5px;
   color: #666;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
@@ -259,7 +259,7 @@ line.hover {
 ================================================================*/
 #instructions {
   padding: 0 20px 0 10px;
-  text-align:  justify;
+  text-align: justify;
 }
 
 
@@ -269,10 +269,12 @@ line.hover {
 #wiki-browser {
   width: 980px;
   margin-left: -490px;
-  margin-top: -310px;
+  margin-top: -300px;
 }
 
-
+#wiki-browser .modal-body {
+  padding: 0;
+}
 
 /*================================================================
 === Scrollbars
@@ -280,13 +282,11 @@ line.hover {
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
-
-     -moz-transition: all 0.1s linear;  
-      -ms-transition: all 0.1s linear;  
-       -o-transition: all 0.1s linear;  
-  -webkit-transition: all 0.1s linear;  
+     -moz-transition: all 0.1s linear;
+      -ms-transition: all 0.1s linear;
+       -o-transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
           transition: all 0.1s linear;
-
 }
 
 ::-webkit-scrollbar-button:start:decrement {

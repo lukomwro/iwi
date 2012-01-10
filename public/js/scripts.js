@@ -12,8 +12,8 @@
      * Setting up auto complete
      */
     $("#form-search-input").autocomplete(
-        //"http://wikiwizir.yum.pl/ajax/list/", {
-        "/ajax/list/", {
+        "http://wikiwizir.yum.pl/ajax/list/", {
+        //"/ajax/list/", {
             delay:10,
             minChars:2,
             matchSubset:1,
@@ -96,9 +96,9 @@
             var force, link, node;
             w.location.hash = id;
             $("#instructions").hide();
-            $('#loader').show();
-            //d3.json('json.html?'+id, function(json) {
-            d3.json('/ajax/nodes/'+id, function(json) {
+            $('#loader').fadeIn(300);
+            d3.json('json.html?'+id, function(json) {
+            //d3.json('/ajax/nodes/'+id, function(json) {
                 vis.selectAll('*').remove();
                 force = d3.layout.force()
                     .charge(GraphSettings.charge)
@@ -170,18 +170,18 @@
                         node.attr("cx", function(d) { return d.x; })
                             .attr("cy", function(d) { return d.y; });
                         force.stop();
-                        $('#loader').hide();
+                        $('#loader').fadeOut(300);
                     }
                 });
 
-                $('#element-children a.nodeLink').mouseover(function() {
-                    $('#n-'+$(this).data('id')).attr('class', 'node selected');
-                    vis.selectAll('line.n-'+$(this).data('id')).classed('hover', true);
+                $('#element-children li').mouseover(function() {
+                    $('#n-'+$(this).find('.nodeLink').data('id')).attr('class', 'node selected');
+                    vis.selectAll('line.n-'+$(this).find('.nodeLink').data('id')).classed('hover', true);
                 });
 
-                $('#element-children a.nodeLink').mouseout(function() {
-                    $('#n-'+$(this).data('id')).attr('class', 'node');
-                    vis.selectAll('line.n-'+$(this).data('id')).classed('hover', false);
+                $('#element-children li').mouseout(function() {
+                    $('#n-'+$(this).find('.nodeLink').data('id')).attr('class', 'node');
+                    vis.selectAll('line.n-'+$(this).find('.nodeLink').data('id')).classed('hover', false);
                 });
 
                 $('#element-children a.wiki').click(function() {

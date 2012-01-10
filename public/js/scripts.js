@@ -152,7 +152,7 @@
                     .text(function(d) { return d.name; });
 
                 force.on("tick", function(alpha) {
-                    if (alpha.alpha < 0.008) {
+                    if (alpha.alpha <= 0.0065) {
                         link.attr("x1", function(d) { return d.source.x; })
                             .attr("y1", function(d) { return d.source.y; })
                             .attr("x2", function(d) { return d.target.x; })

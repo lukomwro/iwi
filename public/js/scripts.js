@@ -12,8 +12,8 @@
      * Setting up auto complete
      */
     $("#form-search-input").autocomplete(
-        "http://wikiwizir.yum.pl/ajax/list/", {
-        //"/ajax/list/", {
+        //"http://wikiwizir.yum.pl/ajax/list/", {
+        "/ajax/list/", {
             delay:10,
             minChars:2,
             matchSubset:1,
@@ -97,8 +97,8 @@
             w.location.hash = id;
             $("#instructions").hide();
             $('#loader').fadeIn(300);
-            d3.json('json.html?'+id, function(json) {
-            //d3.json('/ajax/nodes/'+id, function(json) {
+            //d3.json('json.html?'+id, function(json) {
+            d3.json('/ajax/nodes/'+id, function(json) {
                 vis.selectAll('*').remove();
                 force = d3.layout.force()
                     .charge(GraphSettings.charge)
